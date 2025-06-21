@@ -1,8 +1,13 @@
 import Image from 'next/image'
 import { fetchMovieDetails } from '@/lib/utils'
 
-export default async function MoviePage({ params }: { params: { id: string } }) {
-  const movie = await fetchMovieDetails(params.id)
+export default async function MoviePage({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id } = await params
+  const movie = await fetchMovieDetails(id)
 
   return (
     <div className="grid md:grid-cols-2 gap-4">
