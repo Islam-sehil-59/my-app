@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import MovieCard from '@/components/ui/MovieCard'
+import { Input } from '@/components/ui/input'
 import { searchMovies } from '@/lib/utils'
 
 interface Movie {
@@ -28,11 +29,11 @@ export default function SearchPage() {
 
   return (
     <div>
-      <input
+      <Input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search movies..."
-        className="w-full p-2 rounded border mb-4 text-black dark:text-white"
+        className="mb-4"
       />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {results.map((movie) => (

@@ -1,4 +1,5 @@
-import MovieCard from '@/components/ui/MovieCard'
+import Hero from '@/components/hero'
+import MovieCarousel from '@/components/movie-carousel'
 import { fetchTrendingMovies } from '@/lib/utils'
 
 interface Movie {
@@ -12,11 +13,12 @@ export default async function Home() {
   const data = await fetchTrendingMovies()
   const movies: Movie[] = data.results ?? []
 
+  const [featured, ...rest] = movies
+
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
+    <div className="space-y-8">
+      {featured && <Hero movie={featured} />}
+      <MovieCarousel movies={rest} title="Trending" />
     </div>
   )
 }

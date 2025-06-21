@@ -22,12 +22,14 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans bg-background text-foreground`}
+      >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar />
           <main className="container mx-auto p-4">{children}</main>
         </ThemeProvider>

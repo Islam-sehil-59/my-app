@@ -11,7 +11,7 @@ export interface Movie {
 export default function MovieCard({ movie }: { movie: Movie }) {
   return (
     <Link href={`/movie/${movie.id}`}>
-      <div className="rounded-xl shadow-md hover:scale-105 transition">
+      <div className="rounded-xl shadow-md hover:scale-105 transition cursor-pointer">
         <Image
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
